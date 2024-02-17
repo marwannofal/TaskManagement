@@ -1,0 +1,37 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px; 
+}
+.card {
+    border-color: black;
+    border-radius:20px;
+}
+#cardBgIndexHeadr {
+    border-top-left-radius: 18px;
+    border-top-right-radius: 18px;
+    border-color: black;
+}
+#cardBgIndexFooter {
+    border-bottom-left-radius: 18px;
+    border-bottom-right-radius: 18px;
+    border-color: black;
+}
+#elementCardIndexFooter {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}

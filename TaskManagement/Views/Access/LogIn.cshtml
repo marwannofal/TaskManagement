@@ -1,0 +1,50 @@
+﻿ 
+ @model User;
+
+@{
+    ViewData["Title"] = "logIn";
+}
+
+<div class="row text">
+    <div class="col-md-8">
+        <p>
+            <h1>Login</h1>
+        </p>
+        <div class="row">
+            <div class="col-md-8">
+                <form asp-controller="Access" asp-action="Login" method="post">
+                    <div class="form-group">
+                        <label asp-for="Email" class="control-label"></label>
+                        <input asp-for="Email" class="form-control" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Password" class="control-label"></label>
+                        <input asp-for="Password" class="form-control" />
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+                    <div class="from-group">
+                        <label>
+                            <input type="checkbox" asp-for="KeepLoggedIn" />
+                            Keep me logged In.
+                        </label>
+                    </div>
+
+                    @if (ViewData["ValidateMessage"] != null)
+                    {
+                        <br />
+                        <br />
+                        <label>@ViewData["ValidateMessage"]</label>
+                    }
+                    <div class="form-group">
+                        <input type="submit" value="LogIn" class="btn btn-outline-success float-right" name="b1" />
+                    </div>
+                    <div class="form-group">
+                        <p>if you do not have an account please Log Up first :</p>
+                        <input type="submit" value="LogUp" class="btn btn-outline-success float-right" name="b1" asp-action="LogUp" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

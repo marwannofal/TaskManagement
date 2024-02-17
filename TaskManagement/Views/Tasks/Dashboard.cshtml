@@ -1,0 +1,72 @@
+﻿
+@model DashboardViewModel
+
+@{
+    ViewBag.Title = "Dashboard";
+}
+<h2>Dashboard</h2>
+
+<div class="row">
+    <div class="col-md-3">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Total Tasks</h5>
+                <p class="card-text">@Model.TotalTasks</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Completed Tasks</h5>
+                <p class="card-text">@Model.CompletedTasks</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">In Progress</h5>
+                <p class="card-text">@Model.InProgressTasks</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Pending</h5>
+                <p class="card-text">@Model.PendingTasks</p>
+            </div>
+        </div>
+    </div>
+</div>
+<hr />
+
+<canvas id="myChart" style="width:100%;max-width:600px;margin-right:auto;margin-left:auto;"></canvas>
+<script>
+    var xValues = ["Total Tasks", "Completed Tasks", "In Progress", "Pending"];
+    var yValues = [@Model.TotalTasks, @Model.CompletedTasks, @Model.InProgressTasks, @Model.PendingTasks];
+    var barColors = [
+        "red",
+        "green",
+        "brown",
+        "yellow"
+    ];
+    
+    new Chart("myChart", {
+        type: "doughnut",
+        data: {
+            labels: xValues,
+            datasets: [{
+                backgroundColor: barColors,
+                data: yValues
+            }]
+        },
+        options: {
+            title: {
+                display: true,
+                text: "Task Chart for your tasks"
+            }
+        }
+    });
+</script>

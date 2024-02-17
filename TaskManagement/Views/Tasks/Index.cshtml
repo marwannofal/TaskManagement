@@ -1,0 +1,53 @@
+﻿@model IEnumerable<TaskManagement.Models.Task>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<p>
+    <a class="btn btn-outline-success" asp-action="Create"><i class="bi bi-plus-circle"></i> Create New</a>
+</p>
+
+<form class="form-inline my-2 my-lg-0" asp-controller="Tasks" asp-action="Filter" >
+    <div style="align-items:center; justify-content:center; display:flex;">
+        <input name="searchString" type="text" class="form-control" placeholder="Search for a task..." aria-label="Recipient's username" aria-describedby="button-addon2">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="bi bi-search"></i></button>
+    </div>
+</form>
+<hr />
+<div class="row" id="indexCard">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-4 col-xs-6 mb-3" style="max-width:auto; max-height:auto;">
+            <div class="card mb-3" >
+                <div class="row g-0">
+                    <div class="col-md-12">
+                        <div class="card-header bg-black" id="cardBgIndexHeadr">
+                            <p class="card-text">
+                                <h3 class="card-title text-white">
+                                    @Html.DisplayFor(modelItem => item.Title) 
+                                </h3>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card-body">
+                            <p class="card-text"><b>Description: </b>@Html.DisplayFor(modelItem => item.Description)</p>
+                            <p class="card-text"><b>DueDate: </b>@Html.DisplayFor(modelItem => item.DueDate)</p>
+                            <p class="card-text"><b>Status: </b>@Html.DisplayFor(modelItem => item.Status)</p>
+                            <p class="card-text"><b>Category: </b>@Html.DisplayFor(modelItem => item.Category)</p>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="card-footer bg-black" id="cardBgIndexFooter">
+                            <div class="card-text" id="elementCardIndexFooter">
+                                <a class="btn btn-outline-primary" asp-action="Edit" asp-route-id="@item.TaskId"><i class="bi bi-pencil-square"></i>Edit</a>   |
+                                <a class="btn btn-outline-info" asp-action="Details" asp-route-id="@item.TaskId"><i class="bi bi-eye"></i>Details</a>    |
+                                <a class="btn btn-outline-danger" asp-action="Delete" asp-route-id="@item.TaskId"><i class="bi bi-trash"></i>Delete</a> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
