@@ -24,10 +24,10 @@ a {
 }
 
 .border-top {
-  border-top: 1px solid #e5e5e5;
+  border-block-start: 1px solid #e5e5e5;
 }
 .border-bottom {
-  border-bottom: 1px solid #e5e5e5;
+  border-block-end: 1px solid #e5e5e5;
 }
 
 .box-shadow {
@@ -41,8 +41,8 @@ button.accept-policy {
 
 .footer {
   position: absolute;
-  bottom: 0;
-  width: 100%;
+  inset-block-end: 0;
+  inline-size: 100%;
   white-space: nowrap;
   line-height: 60px;
 }

@@ -2,7 +2,7 @@ html {
   font-size: 14px;
 }
 
-@media (min-width: 768px) {
+@media (min-inline-size: 768px) {
   html {
     font-size: 16px;
   }
@@ -10,24 +10,24 @@ html {
 
 html {
   position: relative;
-  min-height: 100%;
+  min-block-size: 100%;
 }
 
 body {
-    margin-bottom: 60px; 
+    margin-block-end: 60px; 
 }
 .card {
     border-color: black;
     border-radius:20px;
 }
 #cardBgIndexHeadr {
-    border-top-left-radius: 18px;
-    border-top-right-radius: 18px;
+    border-start-start-radius: 18px;
+    border-start-end-radius: 18px;
     border-color: black;
 }
 #cardBgIndexFooter {
-    border-bottom-left-radius: 18px;
-    border-bottom-right-radius: 18px;
+    border-end-start-radius: 18px;
+    border-end-end-radius: 18px;
     border-color: black;
 }
 #elementCardIndexFooter {
